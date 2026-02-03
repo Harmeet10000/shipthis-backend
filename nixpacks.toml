@@ -1,8 +1,12 @@
+# Nixpacks configuration for Python FastAPI application
+# Docs: https://nixpacks.com/docs/providers/python
+
+# Use Python 3.12
 [phases.setup]
 nixPkgs = ["python312"]
 
-[phases.install]
-cmds = ["pip install --upgrade pip", "pip install -r requirements.txt"]
+# The install phase will automatically run: pip install -r requirements.txt
+# No need to override it unless you have special requirements
 
 [start]
 cmd = "uvicorn src.app.main:app --host 0.0.0.0 --port $PORT"
